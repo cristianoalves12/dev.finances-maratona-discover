@@ -15,7 +15,7 @@ const Modal = {
     }
 }
 
-const Storage = {
+const Storage = { // armazena localmente as informações
     get() {
         return JSON.parse(localStorage.getItem('dev.finances:transactions')) || []
     },
@@ -122,9 +122,9 @@ const DOM = {
 
 const Utils = {
     formatAmount(value) {
-        value = Number(value.replace(/\,\./g, "")) * 100
+        value = value * 100
 
-        return value
+        return Math.round(value)
     },
 
     formatDate(date) {
